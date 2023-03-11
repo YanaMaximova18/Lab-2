@@ -49,8 +49,8 @@ let student = {
     first_name: "Иван"
     };
 const objKeys = Object.keys(student);
-//console.log(`Список свойств: ${objKeys}`);
-console.log(`Список свойств: ${Object.keys(student)[0]}, ${Object.keys(student)[1]}, ${Object.keys(student)[2]}`);
+console.log(`Список свойств: ${objKeys.join(", ")}`);
+//console.log(`Список свойств: ${Object.keys(student)[0]}, ${Object.keys(student)[1]}, ${Object.keys(student)[2]}`);
 console.log(`Студент ${student.first_name} ${student.last_name} учится в ${student.group} группе`);
 
 //-----------------------4-------------------------------\\
@@ -74,14 +74,14 @@ function randomNumber(min, max){
     let col = prompt('Введите количество возвращаемых значений');
     console.log(rand = arr[Math.floor(Math.random() * arr.length)]);
 } */
-function sampleArray(){
-    let arr = [1,2,3,4,5];
+let arr = [1,2,3,4,5];
+let col = randomNumber(1, 5);
+function sampleArray(arr, col){
     let arr1 = [];
-    let col = randomNumber(1, 5);
     let i = 0;
     while( i!= col)
     {
-        randar = Math.floor(Math.random() * arr.length);
+        randar = (randomNumber(0, arr.length-1)); 
         arr1.push(arr[randar]);
         i++;
     }
@@ -89,7 +89,7 @@ function sampleArray(){
     return sampleArray [arr1];
 }
 
-convertSpeed(num, ed);
+//convertSpeed(num, ed);
 //randomNumber(min =+prompt('Введите минимальное значение', 0), max =+ prompt('Введите максимальное значение', 200));
 //absValue(ch);
-//sampleArray();
+sampleArray(arr, col);
