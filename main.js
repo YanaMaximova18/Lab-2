@@ -1,123 +1,94 @@
-// задача 1
-let a1 = 36, b1 = 20;
-console.log(`${a1} км/ч соответствует ${a1/3.6} м/c`)
-console.log(`${b1} м/c соответствует ${b1*3.6} км/ч`)
-
-// задача 2
-let a2 = 10, b2 = 15, c2 = 7;
-if(((a2+b2)>c2) && ((a2+c2)>b2) && ((b2+c2)>a2))
-if (((a2+b2)>c2) && ((a2+c2)>b2) && (b2+c2)>a2)
-{
-    console.log(`треугольник существует`);
-    console.log(`Периметр = ${a2+b2+c2}`);
-    let p=(a2+b2+c2)/2;
-    console.log(`Площадь = ${Math.sqrt(p*(p-a2)*(p-b2)*(p-c2))}`);
-    console.log(`Соотношение = ${(a2+b2+c2)/Math.sqrt(p*(p-a2)*(p-b2)*(p-c2))}`);
-}
-else {
-    console.log(`треугольник не существует`)
-}
-
-// задание 3
-let num = prompt('Введите число', 100);
-if (isNaN (num))
-{
-    alert('Вы ввели не число!')
-}
-for(let i=0; i<=num; i++)
-{
-    if (i % 5 === 0)
+//------------------------1----------------------\\
+/* function convertSpeed(){
+    let num = prompt('Введите значение скорости', 200);
+    let ed = prompt('Введите направление преобразования', 200);
+    if(ed=='toMS')
     {
-        console.log(i + (" fizz buzz"))
+        console.log(`convertSpeed(${num}, ${ed}) -> ${num/3.6} м/с`);
     }
-    else{
-        console.log(i + ( i % 2 === 0 ? " buzz" : " fizz"))
+    else if(ed=='toKMH') {
+        console.log(`convertSpeed(${num}, ${ed}) -> ${num*3.6} км/ч`);
+    }
+} */
+let num = prompt('Введите значение скорости', 200);
+let ed = prompt('Введите направление преобразования', 200);
+function convertSpeed(num, ed){
+    if(ed=='toMS')
+    {
+        return num/3.6;
+    }
+    else if(ed=='toKMH') {
+        return num*3.6;
     }
 }
+console.log(`convertSpeed(${num}, ${ed}) -> ${convertSpeed(num, ed)}`);
 
-// задание 4
-let str=''; let g;
-for (let k=0; k<=11; k++)
-{
-    g=0;
-    while (g<=k)
+//----------------------2------------------\\
+/* function absValue(){
+    let ch = prompt('Введите число');
+    if (ch<0)
     {
-        if (k % 2 === 0)
+        console.log(`absValue(${ch}) -> ${0-ch}`);
+    }
+    else console.log(`absValue(${ch}) -> ${ch}`);
+}  */
+let ch = prompt('Введите число');
+function absValue(ch){
+    if (ch<0)
     {
-        str += "*";
+        return -ch;
     }
-    else {
-        str += "#";
-    }
-    g++
-    }
-    str += "\n";
-}
-str += "||";
-console.log(`${str}`);
-
-// задание 5
-const zch = 12
-let numb = +prompt( "Угадайте число" )
-
-if ( !parseInt(numb) ) 
-{
-    alert ('Вы ввели не число!') 
-    numb = +prompt( "Угадайте число" )
+    else return ch;
 } 
-do 
-{
-    if (numb < zch)
-    {
-        console.log(`Ваше число меньше`);
-        numb = +prompt( "Угадайте число" )
-    } 
-    else
-    {
-        console.log(`Ваше число больше`);
-        numb = +prompt( "Угадайте число" )
-    }
-} while (numb != zch);
-alert ( 'Число угадано' )
+console.log(`absValue(${ch}) -> ${absValue(ch)}`);
 
-// задание 6
-let n = prompt('Введите число n', 100);
-let x = prompt('Введите число x', 100);
-let y = prompt('Введите число y', 100);
-if ((n > 0) && (x > 0) && (y > 0))
-{
-    if ((n % x === 0) && (n % y === 0))
-    {
-        console.log(`n = ${n}, x = ${x}, y = ${y} => true`);
-    }
-    else{
-        console.log(`n = ${n}, x = ${x}, y = ${y} => false`);
-    }
-}
-else {
-    alert ('Вы ввели не положительное число отличное от нуля!') 
+//--------------------------3------------------------\\
+let student = {
+    group: 201,
+    last_name: "Иванов",
+    first_name: "Иван"
+    };
+const objKeys = Object.keys(student);
+//console.log(`Список свойств: ${objKeys}`);
+console.log(`Список свойств: ${Object.keys(student)[0]}, ${Object.keys(student)[1]}, ${Object.keys(student)[2]}`);
+console.log(`Студент ${student.first_name} ${student.last_name} учится в ${student.group} группе`);
+
+//-----------------------4-------------------------------\\
+
+/* function randomNumber(){
+    let min =+ prompt('Введите минимальное значение', 0);
+    let max =+ prompt('Введите максимальное значение', 200);
+    let rand = Math.trunc(Math.random() * (max - min) + min);
+    console.log(rand);
+} */
+
+function randomNumber(min, max){
+    let rand = Math.trunc(Math.random() * (max - min) + min);
+    console.log(rand);
+    return rand;
 }
 
-// задание 7
-let j = prompt('Введите номер месяца', 100);
-if ((j >0) & (j < 13))
-{
-    if ((j == 1) || (j == 2) || (j == 3))
+//------------------------5----------------------------------\\
+/* function sampleArray(){
+    let arr = [1,2,3,4,5];
+    let col = prompt('Введите количество возвращаемых значений');
+    console.log(rand = arr[Math.floor(Math.random() * arr.length)]);
+} */
+function sampleArray(){
+    let arr = [1,2,3,4,5];
+    let arr1 = [];
+    let col = randomNumber(1, 5);
+    let i = 0;
+    while( i!= col)
     {
-        console.log(`месяц ${j} => 1 квартал`);
+        randar = Math.floor(Math.random() * arr.length);
+        arr1.push(arr[randar]);
+        i++;
     }
-    if ((j == 4) || (j == 5) || (j == 6))
-    {
-        console.log(`месяц ${j} => 2 квартал`);
-    }
-    if ((j == 7) || (j == 8) || (j == 9))
-    {
-        console.log(`месяц ${j} => 3 квартал`);
-    }
-    if ((j == 10) || (j == 11) || (j == 12))
-    {
-        console.log(`месяц ${j} => 4 квартал`);
-    }
+    console.log(`sampleArray([${arr}], ${col}) -> [${arr1}]`);
 }
-else prompt('Вы ввели неподходящее число!', 100);
 
+//convertSpeed(num, ed);
+//randomNumber(min =+prompt('Введите минимальное значение', 0), max =+ prompt('Введите максимальное значение', 200));
+//absValue(ch);
+//sampleArray();
