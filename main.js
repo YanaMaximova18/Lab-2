@@ -86,9 +86,10 @@ function sampleArray(){
         i++;
     }
     console.log(`sampleArray([${arr}], ${col}) -> [${arr1}]`);
+    return sampleArray [arr1];
 }
 
-//convertSpeed(num, ed);
+convertSpeed(num, ed);
 //randomNumber(min =+prompt('Введите минимальное значение', 0), max =+ prompt('Введите максимальное значение', 200));
 //absValue(ch);
 //sampleArray();
