@@ -27,12 +27,32 @@ mail.addEventListener("blur", () => {
         error.textContent = "Error! Chek your address."
         mail.setCustomValidity("Error! Chek your address.")
     }
+    else if (mail.validity.valueMissing){
+        error.textContent = "Error! Fill in the fieled."
+        mail.setCustomValidity("Error! Fill in the fieled.")
+    }
     else
     {
         error.textContent = ""
         mail.setCustomValidity("")
     }
 })
+
+pass.addEventListener("blur", () => {
+    if (pass.validity.tooShort) {
+        error.textContent = "Error! Minimum of 6 symbols."
+        pass.setCustomValidity("Error! Minimum of 6 symbols.")
+    }
+    else if (pass.validity.valueMissing){
+        error.textContent = "Error! Fill in the fieled."
+        pass.setCustomValidity("Error! Fill in the fieled.")
+    }
+    else
+    {
+        error.textContent = ""
+        pass.setCustomValidity("")
+    }
+}) 
 
 form.addEventListener("submit", (e) =>{
     console.table({email: mail.value, password: pass.value});
